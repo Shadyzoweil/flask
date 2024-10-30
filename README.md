@@ -1,0 +1,1 @@
+Full stack web app using html , css and FLASK for the back end. The web app allows user to enter a new item into a database ,modify an existing item or delete and existing item.It also has a page which fetches all the data from the database and displays it in a table.
