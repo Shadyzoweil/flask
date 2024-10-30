@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='invoicedetails.css') }}">
+   
+</head>
+<body>
+    <h1>Invoice Details</h1>
+    <form method="POST">
+        
+
+        <label for="productname">productname:</label>
+        <input type="text" id="productname" name="productname" ><br><br>
+
+        <label for="unitno">unit no:</label>
+        <select name="unitno" id="unitno">
+            <option value="1">1</option>
+            <option value="2">2</option>
+            <option value="3">3</option>
+           
+        </select><br><br>
+        <label for="price">price:</label>
+        <input type="text" id="price" name="price" oninput="calculateTotal()" ><br><br>
+
+        <label for="quantity">quantity:</label>
+        <input type="text" id="quantity" name="quantity" oninput="calculateTotal()"><br><br>
+
+        <label for="total">total:</label>
+        <input type="text" id="total" name="total" readonly><br><br>
+
+        <label for="expirydate">expirydate:</label>
+        <input type="date" id="expirydate" name="expirydate"><br>
+
+
+
+
+
+        
+
+
+                                                
+        
+
+
+     
+        
+
+        <button type="submit" name="action" value="save">Save</button>
+        <button type="submit" name="action" value="modify">Modify</button>
+        <button type="submit" name="action" value="delete">Delete</button>
+    </form>
+    <div class="mybt">
+    <a href="{{ url_for('home') }}" class="bt"><button>prev</button></a>
+    <a href="/invoicelist" class="bt"><button>next</button></a>
+    </div>
+
+    <script>
+        function calculateTotal() {
+            const price = document.getElementById("price").value;
+            const quantity = document.getElementById("quantity").value;
+            const total = document.getElementById("total");
+    
+            if (price && quantity) {
+                total.value = (parseFloat(price) * parseInt(quantity)).toFixed(2);
+            } else {
+                total.value = "";
+            }
+        }
+    </script>
+    
+   
+</body>
+</html>

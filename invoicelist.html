@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Invoice List</title>
+</head>
+<body>
+    <h1>Invoice List</h1>
+    <table border="1">
+        <thead>
+            <tr>
+                <th>Line No</th>
+                <th>Product Name</th>
+                <th>Unit No</th>
+                <th>Price</th>
+                <th>Quantity</th>
+                <th>Total</th>
+                <th>Expiry Date</th>
+            </tr>
+        </thead>
+        <tbody>
+        {% for row in rows %}
+            <tr>
+                <td>{{ row['lineno'] }}</td>
+                <td>{{ row['productname'] }}</td>
+                <td>{{ row['unitno'] }}</td>
+                <td>{{ row['price'] }}</td>
+                <td>{{ row['quantity'] }}</td>
+                <td>{{ row['total'] }}</td>
+                <td>{{ row['expirydate'] }}</td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+    <a href="{{ url_for('home') }}"><button>Back</button></a>
+</body>
+</html>
